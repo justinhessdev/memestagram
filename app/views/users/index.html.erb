@@ -6,5 +6,9 @@
 <i class="em em--1"></i>
 <br>
 <br>
-<%= render_emojis %>
-<% javascript_include_tag "emojis.js" %>
+
+<ul>
+  <% @users.each do |u| %>
+  <li> User <%= u.id %> - Name: <%= u.name %>, Email: <%= u.email %></li>
+  <% end %>
+</ul>
