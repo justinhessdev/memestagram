@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
+    if not current_user # check someone is logged in
+      redirect_to new_session_path # if not take them to login page
+    end
     @posts = Post.all
   end
 
@@ -12,12 +15,18 @@ class PostsController < ApplicationController
   end
 
   def create
+    if not current_user # check someone is logged in
+      redirect_to new_session_path # if not take them to login page
+    end
+
     @post = Post.new(post_params)
+    @post.user = current_user # make post belong to current user
 
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created' }
         format.json { render :show, status: :created, location: @post }
+        # redirect_to user_path current_user
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity}

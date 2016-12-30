@@ -7,9 +7,6 @@
 <br>
 <br>
 
-<%= link_to "Login", new_session_path%>
-<%= link_to "Signup", new_user_path%>
-
 <ul>
   <% @users.each do |u| %>
   <li> <%= link_to "User " + u.id.to_s, user_path(u) %> - Name: <%= u.name %>, Email: <%= u.email %></li>
