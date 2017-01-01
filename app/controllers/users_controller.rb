@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       redirect_to new_session_path
     else
       @user = User.find(params[:id])
+      @posts = @user.posts
     end
   end
 
