@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    if not current_user
+      redirect_to new_session_path
+    else
+      redirect_to posts_path
+    end
   end
 
   def show
@@ -18,11 +22,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if User.find_by_email(@user.email)
+      render :new
+    elsif @user.save
       redirect_to users_path
     else
       render :new
-    end  end
+    end
+  end
 
   def edit
   end

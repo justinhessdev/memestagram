@@ -11,15 +11,15 @@
 <body>
 
   <% if logged_in? %>
-  <%= link_to "Logout", logout_path, {method: "DELETE"} %>
-  <% else %>
-  <%= link_to "Login", new_session_path %>
-  <%= link_to "Signup", new_user_path %>
+    <h4 style="margin-left:40px;float:left"><%= link_to "Logout", logout_path, {method: "DELETE"} %></h4>
+    <h4 style="float:left;margin-left:80px"><%= link_to "Home", posts_path %></h4>
+    <h4 style="float:left;margin-left:80px"><%= link_to current_user.name, user_path(current_user.id) %></h4>
+    <br><br>
   <% end  %>
 
   <div class="container">
   <%= yield %>
   </div>
-  
+
 </body>
 </html>

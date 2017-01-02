@@ -1,27 +1,36 @@
-<h1>Listing Posts</h1>
+<h1 style="text-align:center;"> <%= "Welcome, " + @current_user.name %></h1><br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h3 style="text-align:center;">Travel Feed</h3><br>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= image_tag post.image.url(:thumb) %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<p id="notice"> <%= notice %> </p>
+  <% @posts.each do |post| %>
+  <div style="border:8px solid gray;border-style:inset;width:400px;text-align:center;margin: auto;margin-bottom:1px">
+
+    <%= image_tag post.image.url(:medium) %>
+
+    <p>
+      <strong>Title:</stong>
+        <%= post.title %>
+    </p>
+
+    <p>
+      <strong>Content:</stong>
+        <%= post.content %>
+    </p>
+
+    <p>
+      <strong>Name:</stong>
+        <%= link_to User.find(post.user_id).name, user_path(post.user_id) %>
+    </p>
+
+    <p>
+      <%= link_to 'Show', post %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+  </div>
+
+  <% end %>
 
 <br>
 <%= link_to 'New Post', new_post_path %>
