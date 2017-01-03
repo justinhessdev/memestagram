@@ -1,8 +1,8 @@
 class Post < ActiveRecord::Base
   has_attached_file :image,
-                    styles: {large: "600x600>", medium: "300x300>", thumb: "150x150#"},
+                    styles: {large: "600x600#", medium: "300x300#", thumb: "150x150#"},
                     storage: :s3,
-                    url: "s3_domain_url",
+                    url: ":s3_domain_url",
                     path: "/:class/:attachment/:id_partition/:style/:filename",
                     s3_region: ENV["S3_REGION"],
                     s3_credentials: Proc.new{ |a| a.instance.s3_credentials }
