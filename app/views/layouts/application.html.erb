@@ -6,16 +6,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body>
 
-  <% if logged_in? %>
-    <h4 style="margin-left:40px;float:left"><%= link_to "Logout", logout_path, {method: "DELETE"} %></h4>
-    <h4 style="float:left;margin-left:80px"><%= link_to "Home", posts_path %></h4>
-    <h4 style="float:left;margin-left:80px"><%= link_to current_user.name, user_path(current_user.id) %></h4>
-    <br><br>
-  <% end  %>
+  <%= render 'partials/nav' %>
 
   <div class="container">
   <%= yield %>
