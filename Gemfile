@@ -6,6 +6,11 @@ ruby "2.3.1"
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+# hide env variables -- secret passcodes and api credentials
+gem 'dotenv-rails', group: :development, require: 'dotenv/rails-now'
+# paperclip for images
+gem 'paperclip'
+gem 'aws-sdk'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
@@ -30,9 +35,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
-# paperclip for images
-gem 'paperclip', '~> 4.2'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
