@@ -12,13 +12,24 @@ Create Account - Once user creates account he is routed to Posts page.
 
 Posts - This page contains all Posts from every user. A post contains image, title, content and user id. Each Post is clickable and takes you to the Post Show page. Clicking on a user's name will take you to the specific User show page.
 
+New Post - Add image -- image is saved to AWS
+
 User Show - This page displays all Posts from that specific User.
 
 NavBar - The NavBar contains the current User name, add a Post, route to home page.
 
+Technology Used: Ruby on Rails | AWS | Heroku | PostgreSQL | JavaScript | HTML | CSS
+
+Models: User, Post
+
+Controllers: Users, Posts, Sessions
+
+Views: Users, Posts, Sessions
 
 ToDo:
-1. Add Comments
+
+1. Add Comments and Emojis
+
 2. More Bootstrap
 
 
