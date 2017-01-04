@@ -27,8 +27,12 @@ ToDo:
 In progress...
 
 ![alt text](./app/assets/images/login.png "Wireframe 1")
-![alt text](./app/assets/images/posts_index.png "Wireframe 2")
-![alt text](./app/assets/images/user_show.png "Wireframe 3")
+
+![alt text](./app/assets/images/create_account.png "Wireframe 2")
+
+![alt text](./app/assets/images/posts_index.png "Wireframe 3")
+
+![alt text](./app/assets/images/user_show.png "Wireframe 4")
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
