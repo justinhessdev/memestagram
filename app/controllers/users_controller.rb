@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     if User.find_by_email(@user.email)
       render :new
     elsif @user.save
+      session[:user_id] = @user.id
       redirect_to users_path
     else
       render :new
