@@ -2,35 +2,36 @@
 
 <h3 style="text-align:center;">Travel Feed</h3><br>
 
-<p id="notice"> <%= notice %> </p>
-  <% @posts.each do |post| %>
-  <div style="border:8px solid gray;border-style:inset;width:400px;text-align:center;margin: auto;margin-bottom:1px">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <% @posts.each do |post| %>
 
-    <%= image_tag post.image.url(:medium) %>
+      <div class="dropdown pull-right">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Edit', edit_post_path(post) %></li>
+          <li><%=link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <li role="separator" class="divider"></li>
+          <li><%= link_to "Logout", logout_path, {method: "DELETE"} %></li>
+        </ul>
+      </div>
 
-    <p>
-      <strong>Title:</stong>
-        <%= post.title %>
-    </p>
+      <div class="">
+          <%= link_to User.find(post.user_id).name, user_path(post.user_id) %>
+      </div>
 
-    <p>
-      <strong>Content:</stong>
-        <%= post.content %>
-    </p>
 
-    <p>
-      <strong>Name:</stong>
-        <%= link_to User.find(post.user_id).name, user_path(post.user_id) %>
-    </p>
 
-    <p>
-      <%= link_to 'Show', post %>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </p>
+      <div class="clearfix">
+        <%= link_to image_tag(post.image), post, class: "thumbnail" %>
+      </div>
+      <% end %>
+
+    </div>
   </div>
+</div>
 
-  <% end %>
 
 <br>
 <%= link_to 'New Post', new_post_path %>
