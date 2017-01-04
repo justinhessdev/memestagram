@@ -26,8 +26,9 @@ ToDo:
 
 In progress...
 
-<!-- ![alt text](./images/wireframes1.png "Wireframe 1")
-![alt text](./images/wireframes2.png "Wireframe 1") -->
+![alt text](./images/login.png "Wireframe 1")
+![alt text](./images/posts_index.png "Wireframe 1")
+![alt text](./images/user_show.png "Wireframe 1")
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
