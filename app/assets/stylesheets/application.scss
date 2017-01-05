@@ -17,6 +17,6 @@
  @import "bootstrap";
  @import "bootswatch/cosmo/bootswatch";
 
-.thumbnail {
-  max-width: 100%;
+.thumbnail img{
+  width: 100%!important;
 }
