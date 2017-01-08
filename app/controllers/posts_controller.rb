@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :comment]
   def index
     if not current_user # check someone is logged in
       redirect_to new_session_path # if not take them to login page
@@ -8,6 +8,10 @@ class PostsController < ApplicationController
   end
 
   def show
+    if not current_user
+      redirect_to new_session_path
+    end
+    @comment = Comment.new
   end
 
   def new
@@ -55,6 +59,12 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed' }
       format.json { head :no_content }
     end
+  end
+
+  def comment
+    @post = Post.find(params[:id])
+    Comment.create({post: @post, body: params[:comment][:body], user: current_user})
+    redirect_to post_path(@post)
   end
 
   private
